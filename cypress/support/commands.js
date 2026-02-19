@@ -3,7 +3,7 @@
 
 // cy.login() — complete login through the UI with intercepted API
 Cypress.Commands.add('login', (email, password) => {
-  cy.intercept('POST', '/api/auth/login', {
+  cy.intercept('POST', '/api/auth/login', { // Mocked API response for login
     statusCode: 200,
     body: {
       token: 'fake-jwt-token',
@@ -21,7 +21,7 @@ Cypress.Commands.add('login', (email, password) => {
 // cy.loginByApi() — skip UI, set localStorage directly (FASTER!)
 Cypress.Commands.add('loginByApi', (email = 'test@example.com') => {
   const user = { name: 'Alice Johnson', email };
-  localStorage.setItem('token', 'fake-jwt-token');
-  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('token', 'fake-jwt-token');    // Simulate storing auth token
+  localStorage.setItem('user', JSON.stringify(user));   // Simulate storing user info
   cy.visit('/home');
 });

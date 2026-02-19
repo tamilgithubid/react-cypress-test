@@ -1,21 +1,21 @@
 // cypress/e2e/login.cy.js
 
 describe('Login Page', () => {
-  beforeEach(() => {
+  beforeEach(() => { // Visit the login page before each test
     cy.visit('/');
   });
 
   it('displays the login form', () => {
-    cy.get('[data-cy="email-input"]').should('be.visible');
-    cy.get('[data-cy="password-input"]').should('be.visible');
-    cy.get('[data-cy="submit-btn"]').should('contain.text', 'Sign In');
-    cy.screenshot('login-form-rendered');
+    cy.get('[data-cy="email-input"]').should('be.visible'); // Check if email input is visible
+    cy.get('[data-cy="password-input"]').should('be.visible'); // Check if password input is visible
+    cy.get('[data-cy="submit-btn"]').should('contain.text', 'Sign In'); // Check if submit button has correct text
+    cy.screenshot('login-form-rendered'); // Take a screenshot of the rendered login form
   });
 
   it('shows browser validation for empty fields', () => {
-    cy.get('[data-cy="submit-btn"]').click();
-    cy.url().should('eq', Cypress.config().baseUrl + '/');
-    cy.get('[data-cy="email-input"]').should('be.focused');
+    cy.get('[data-cy="submit-btn"]').click();  // Click submit without filling fields
+    cy.url().should('eq', Cypress.config().baseUrl + '/');  // Should stay on login page due to validation
+    cy.get('[data-cy="email-input"]').should('be.focused'); // Email input should be focused due to HTML5 validation
   });
 });
 
@@ -23,7 +23,7 @@ describe('Login — API Tests', () => {
   beforeEach(() => cy.visit('/'));
 
   it('redirects to /home on successful login', () => {
-    cy.intercept('POST', '/api/auth/login', {
+    cy.intercept('POST', '/api/auth/login', { // Mock successful login response
       statusCode: 200,
       body: {
         token: 'fake-jwt-token',

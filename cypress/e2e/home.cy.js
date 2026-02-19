@@ -13,7 +13,7 @@ describe('Home Page', () => {
       cy.loginByApi('alice@example.com');
     });
 
-    it('displays welcome message with user name', () => {
+    it('displays welcome message with user name', () => { // it - should display welcome message with user name
       cy.get('[data-cy="welcome-message"]')
         .should('be.visible')
         .and('contain.text', 'Welcome back, Alice Johnson');
@@ -47,7 +47,7 @@ describe('Home Page', () => {
 
     it('logs out from navbar and redirects to login', () => {
       cy.get('[data-cy="nav-logout"]').click();
-      cy.url().should('eq', Cypress.config().baseUrl + '/');
+      cy.url().should('eq', Cypress.config().baseUrl + '/'); // Should redirect to login page
       cy.get('[data-cy="login-form"]').should('be.visible');
       cy.screenshot('home-logout-redirect');
     });

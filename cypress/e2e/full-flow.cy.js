@@ -5,11 +5,11 @@ describe('Full App Flow', () => {
   it('completes the entire login → home → profile → logout journey', () => {
     // 1. Visit login page
     cy.visit('/');
-    cy.get('[data-cy="login-form"]').should('be.visible');
-    cy.screenshot('flow-1-login-page');
+    cy.get('[data-cy="login-form"]').should('be.visible'); // Verify login form is visible
+    cy.screenshot('flow-1-login-page'); // Take screenshot of login page
 
     // 2. Intercept login API and submit
-    cy.intercept('POST', '/api/auth/login', {
+    cy.intercept('POST', '/api/auth/login', {  // Mock successful login response
       statusCode: 200,
       body: {
         token: 'fake-jwt-token',

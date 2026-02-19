@@ -18,7 +18,7 @@ export default function LoginForm() {
     e.preventDefault();
     setLoading(true); setError('');
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('/api/auth/login', { // Replace with actual API endpoint
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
