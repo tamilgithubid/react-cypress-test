@@ -1,0 +1,17 @@
+{
+  "validUser": {
+    "email": "alice@example.com",
+    "password": "password123"
+  },
+  "adminUser": {
+    "email": "admin@example.com",
+    "password": "adminpass"
+  },
+  "apiResponse": {
+    "token": "fake-jwt-token",
+    "user": {
+      "name": "Alice Johnson",
+      "email": "alice@example.com"
+    }
+  }
+}
