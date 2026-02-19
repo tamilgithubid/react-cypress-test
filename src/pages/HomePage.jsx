@@ -9,7 +9,7 @@ const stats = [
   { label: 'Growth', value: '+12.5%', icon: TrendingUp, color: 'text-orange-600 bg-orange-50' },
 ];
 
-export default function HomePage() {
+export default function HomePage() { // HomePage component
   const { user } = useAuth();
 
   return (
