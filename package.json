@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "cy:open": "cypress open",
+    "cy:open": "start-server-and-test dev http://localhost:5173 'cypress open'",
     "cy:run": "cypress run",
     "cy:run:headed": "cypress run --headed",
     "test:e2e": "start-server-and-test dev http://localhost:5173 cy:run"
