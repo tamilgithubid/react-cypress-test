@@ -39,7 +39,7 @@ describe('Login — API Tests', () => {
     cy.url().should('include', '/home');
     cy.screenshot('login-success-redirect');
 
-    // Verify user object stored in localStorage
+   
     cy.window().then((win) => {
       const user = JSON.parse(win.localStorage.getItem('user'));
       expect(user).to.deep.equal({ name: 'Alice Johnson', email: 'alice@example.com' });

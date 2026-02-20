@@ -1364,7 +1364,6 @@ it('sees dashboard', () => { /* assumes logged in from test 1 */ });
 it('logs in', () => { cy.visit('/'); /* login flow */ });
 it('sees dashboard', () => { cy.loginByApi(); /* check dashboard */ });
 ```
-
 ### 7. Organize with describe blocks
 
 ```js
